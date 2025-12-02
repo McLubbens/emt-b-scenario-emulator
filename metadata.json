@@ -1,0 +1,7 @@
+{
+  "name": "EMT-B Scenario Emulator",
+  "description": "An AI-powered NREMT patient assessment simulator that guides users through medical and trauma emergencies using real-time feedback and dynamic patient physiology.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
