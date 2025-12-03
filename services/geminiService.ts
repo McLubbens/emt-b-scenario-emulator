@@ -11,6 +11,7 @@ const SAFETY_SETTINGS = [
 ];
 
 const MEDICAL_PATHOLOGIES = [
+  // Adult / Geriatric
   "Chest Pain (Possible Acute Myocardial Infarction)",
   "Chest Pain (Angina Pectoris)",
   "Congestive Heart Failure (CHF) / Pulmonary Edema",
@@ -32,10 +33,19 @@ const MEDICAL_PATHOLOGIES = [
   "Heat Stroke / Heat Exhaustion",
   "Hypothermia",
   "Diabetic Ketoacidosis (DKA)",
-  "Syncope (Cardiac origin)"
+  "Syncope (Cardiac origin)",
+  // Pediatric
+  "Pediatric Respiratory Distress (Asthma Exacerbation)",
+  "Pediatric Respiratory Distress (Croup)",
+  "Pediatric Seizure (Febrile)",
+  "Pediatric Allergic Reaction (Anaphylaxis)",
+  "Pediatric Dehydration (Gastroenteritis)",
+  "Pediatric Fever / Sepsis",
+  "Pediatric Altered Mental Status (Accidental Ingestion)"
 ];
 
 const TRAUMA_PATHOLOGIES = [
+  // Adult / Geriatric
   "Head Injury (Traumatic Brain Injury / Subdural Hematoma)",
   "Chest Injury (Tension Pneumothorax)",
   "Chest Injury (Flail Chest)",
@@ -47,7 +57,13 @@ const TRAUMA_PATHOLOGIES = [
   "Penetrating Trauma (Stab wound to Abdomen)",
   "Multi-system Trauma (Fall from height)",
   "Burn Injury (Thermal - High BSA)",
-  "Neck Injury (Laceration with bleeding control)"
+  "Neck Injury (Laceration with bleeding control)",
+  // Pediatric
+  "Pediatric Head Injury (Fall)",
+  "Pediatric Arm Fracture (Greenstick)",
+  "Pediatric Burn (Scald)",
+  "Pediatric Multi-system Trauma (Bicycle Accident)",
+  "Pediatric Foreign Body Airway Obstruction"
 ];
 
 // Define properties once to reuse in both strict and partial schemas
@@ -185,6 +201,7 @@ export const generateScenario = async (type: ScenarioType): Promise<ScenarioData
 
     INSTRUCTIONS:
     - Make it challenging but solvable by an EMT Basic.
+    - If the pathology is labeled "Pediatric", ensure the patientAge is appropriate (e.g., < 18).
     - Include initial vitals that match the specific pathology selected above.
     - The dispatchMessage should be brief, like a radio tone.
     - Do NOT reveal the specific diagnosis in the dispatch message, only the symptoms or nature of call (e.g., "Diff Breathing" not "Asthma").
